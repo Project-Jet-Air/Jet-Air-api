@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JetAir.Domain", "JetAir.Dom
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JetAir.Api", "JetAir.Api\JetAir.Api.csproj", "{6B6D753E-7B5F-402C-96DE-6B1DC9DD5670}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JetAir.Data", "JetAir.Data\JetAir.Data.csproj", "{8219FD04-6934-4D98-9BDC-E12954B946D2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{6B6D753E-7B5F-402C-96DE-6B1DC9DD5670}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6B6D753E-7B5F-402C-96DE-6B1DC9DD5670}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6B6D753E-7B5F-402C-96DE-6B1DC9DD5670}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8219FD04-6934-4D98-9BDC-E12954B946D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8219FD04-6934-4D98-9BDC-E12954B946D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8219FD04-6934-4D98-9BDC-E12954B946D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8219FD04-6934-4D98-9BDC-E12954B946D2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
