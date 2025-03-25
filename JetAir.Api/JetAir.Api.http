@@ -1,0 +1,6 @@
+@JetAir.Api_HostAddress = http://localhost:5012
+
+GET {{JetAir.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
