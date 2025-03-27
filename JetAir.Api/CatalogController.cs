@@ -24,37 +24,67 @@ namespace JetAir.Api.Controllers
         [HttpGet("{id:int}")]
         public IActionResult GetItem(int id)
         {
-            // For now, simulate getting an item by ID
-            var item = new Item { ItemId = id, Name = $"Item {id}", Description = "Simulated Item", Price = 10.00m };
+           var item = _context.Items.Find(id);
             if (item == null)
-            {
-                return NotFound();
-            }
+        {
+            return NotFound();
+        }
             return Ok(item);
         }
 
         [HttpPost]
-        public IActionResult PostItem([FromBody] Item item)
+        public IActionResult Post(Item item)
         {
-            return CreatedAtAction(nameof(GetItem), new { id = item.ItemId }, item);
+            _context.Items.Add(item);
+            _context.SaveChanges();
+            return Created($"/catalog/{item.Id}", item);
         }
 
         [HttpPost("{id:int}/ratings")]
         public IActionResult PostRating(int id, [FromBody] Rating rating)
         {
-            return Ok($"Rating added to item {id}");
+            var item = _contextItems.Find(id);
+            if (item == null)
+            {
+                return NotFound();
+            }
+            item.AddRating(rating);
+            _context.SaveChanges();
+
+            return Ok(item);
         }
 
         [HttpPut("{id:int}")]
         public IActionResult PutItem(int id, [FromBody] Item item)
         {
-            return Ok($"Item {id} updated");
+            if (id != item.Id)
+        {
+            return BadRequest();
+        }
+
+        if (_context.Items.Find(id) == null)
+        {
+            return NotFound();
+        }
+
+        _context.Entry(item).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+        _context.SaveChanges();
+
+        return NoContent();
         }
 
         [HttpDelete("{id:int}")]
         public IActionResult DeleteItem(int id)
         {
-            return Ok($"Item {id} deleted");
-        }
+            var item = _context.Items.Find(id);
+            if (item == null)
+            {
+                return NotFound();
+            }
+
+            _context.Items.Remove(item);
+            _context.SaveChanges();
+
+            return Ok();
     }
-}
+    }
