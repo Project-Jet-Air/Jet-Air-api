@@ -1,6 +1,23 @@
-@JetAir.Api_HostAddress = http://localhost:5012
+###
+curl --request POST \
+  --url https://dev-62aai76gqc1hks80.us.auth0.com/oauth/token \
+  --header 'content-type: application/json' \
+  --data '{"client_id":"RJoDrBmJ50OAC7dWfEqLIAMPPje2xxbX","client_secret":"HtM2YOQiexHHEKWuiOW93pVG7Y4Q1cTczkfoYNCoBZc1Gr2l4odr8iBEEJJ48PJj","audience":"https://jet-air","grant_type":"client_credentials"}'
 
-GET {{JetAir.Api_HostAddress}}/weatherforecast/
+###
+curl --request DELETE \
+--url http://localhost:5012/catalog/3 \
+--header 'authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImNydWZWUkVaMERsdFE5SGZSN01qVCJ9.eyJpc3MiOiJodHRwczovL2Rldi02MmFhaTc2Z3FjMWhrczgwLnVzLmF1dGgwLmNvbS8iLCJzdWIiOiJSSm9EckJtSjUwT0FDN2RXZkVxTElBTVBQamUyeHhiWEBjbGllbnRzIiwiYXVkIjoiaHR0cHM6Ly9qZXQtYWlyIiwiaWF0IjoxNzQ1MTA4OTY5LCJleHAiOjE3NDUxOTUzNjksImd0eSI6ImNsaWVudC1jcmVkZW50aWFscyIsImF6cCI6IlJKb0RyQm1KNTBPQUM3ZFdmRXFMSUFNUFBqZTJ4eGJYIn0.Lz7m-EdoOmMLfWYvNVrLurd2swU0O4flmuDrCAyiClZreSzW6_Z0eve4kTRa_tHKsKBayx9RWvmJc2iITwJzaGE7u08nqs-atuy5TCH2l3_TZSwLE1AWB_WoW2XNCNOM-JDsGAdC_8P9jUqv2PhTRs8wDsh_rXWOiga6KqURL7Unsuftwu5M-zq3QOILpAy0xp4vc4TWsXNhwBKjAU6o8Ym66iQTdjjKXcKnm9isX6katNoIXYWQvP81vsR4CVFOJ6UXHfdP7fXFdftge9xz_fFSVhqON5A--yDFGNSsQICrnfiK390-9ivQALwISsymq5wXf8mQ2snzoRvpnF16dQ
+
+### 
+@JetAir = http://localhost:5012
+@token = eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Im5XajNTSTdZMEJRYnFXd0Q3cGFrbiJ9.eyJpc3MiOiJodHRwczovL2Rldi1tMm5vdDhpbDVlcW4yMzFxLnVzLmF1dGgwLmNvbS8iLCJzdWIiOiJ6VFM4SHZpTnJ3ZHBkb09nTjl0cHBIWTRIYlpsZFV6ckBjbGllbnRzIiwiYXVkIjoiaHR0cHM6Ly9qZXQtYWlyIiwiaWF0IjoxNzQ1MDkwOTkxLCJleHAiOjE3NDUxNzczOTEsInNjb3BlIjoiZGVsZXRlOmNhdGFsb2ciLCJndHkiOiJjbGllbnQtY3JlZGVudGlhbHMiLCJhenAiOiJ6VFM4SHZpTnJ3ZHBkb09nTjl0cHBIWTRIYlpsZFV6ciJ9.qfj7fuFEEOxXqodmFIYEG6f0hkt4LDrvBB1JxVlENTGJQarKFA_V7WlXZ-HT9mPJs_FKsSpn-ala6cA9qPQxUut8Cs87k3LPjlez4iUoQ0kstrCtb92k1-KTjjvpsVkOANVOU-QppF8fsmbMgGyFK7F-mvyR9k320ZyHPThoaTUsM4uAJcLdvUqXbUurnlBS4of-DQPw1X8wAvDXmg3MVzH2VcQjUvTZKMMtjqeIOIb6vmoQVmlTmqFY7lSp2nILubMtcrsLWSkUDjDbh5H1e6r-5ajohVqBqhojwLmcabbBLneFB4rSe8FmrBq1q1MG8nTA1FJzDMgGTGVjycM6Yw
+
+GET {{JetAir}}/weatherforecast/
 Accept: application/json
 
 ###
+DELETE {{JetAir}}/catalog/1
+Authorization: Bearer {{token}}
+Accept: application/json
+
